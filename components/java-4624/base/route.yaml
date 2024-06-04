@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: java-4624
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: java-4624 
+  name: java-4624
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: java-4624
+    weight: 100 
